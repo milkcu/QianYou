@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         // TODO Auto-generated method stub
         listFragment = new ArrayList<Fragment>();;
         int length = list.size();
-        for (int i = 0; i < length; i++) {
+        for (int i = 1; i <= length; i++) {
             GameListFragment frag = GameListFragment.newInstance(i);
             listFragment.add(frag);
         }

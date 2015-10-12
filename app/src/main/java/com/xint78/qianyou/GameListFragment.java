@@ -67,13 +67,25 @@ public class GameListFragment extends Fragment {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 //view.loadUrl(url);
-                Intent intent = new Intent(getActivity(), GameDetailActivity.class);
-                intent.putExtra("url", url);
-                startActivity(intent);
+                if(url.indexOf("api_gamedetail") != -1) {
+                    Intent intent = new Intent(getActivity(), GameDetailActivity.class);
+                    intent.putExtra("url", url);
+                    startActivity(intent);
+                } else {
+                    view.loadUrl(url);
+                }
                 return true;
             }
         });
-        webView.loadUrl("file:///android_asset/offline.html");
+        if(tabIndex == 1) {
+            webView.loadUrl("http://m.1000you.com/api_gamelist.php");
+        } else if(tabIndex == 2) {
+            webView.loadUrl("http://m.1000you.com/api_hotlist.php");
+        } else if(tabIndex == 3) {
+            webView.loadUrl("file:///android_asset/category.html");
+        } else {
+            webView.loadUrl("file:///android_asset/offline.html");
+        }
         return view;
     }
 /*

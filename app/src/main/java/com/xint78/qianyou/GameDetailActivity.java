@@ -72,7 +72,7 @@ public class GameDetailActivity extends AppCompatActivity {
 
         // init webview
         WebView detailView = (WebView) findViewById(R.id.detailView);
-        //mWebView.getSettings().setJavaScriptEnabled(true);
+        detailView.getSettings().setJavaScriptEnabled(true);
 
         detailView.setDownloadListener(new DownloadListener() {
             @Override
@@ -86,9 +86,9 @@ public class GameDetailActivity extends AppCompatActivity {
                     return;
                 }
 
-                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "游戏名称" + ".apk");
-                request.setTitle("你的某某游戏正在下载");
-                request.setDescription("这里是通知栏游戏介绍");
+                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "千游游戏" + ".apk");
+                request.setTitle("千游游戏正在下载");
+                request.setDescription("欢迎使用千游游戏，您的游戏正在下载。");
                 request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
                 request.setMimeType("application/vnd.android.package-archive");
 
@@ -99,7 +99,9 @@ public class GameDetailActivity extends AppCompatActivity {
 
             }
         });
-        detailView.loadUrl("http://milkcu.com/webview-test.html");
+        Intent intent = getIntent();
+        String url = intent.getStringExtra("url");
+        detailView.loadUrl(url);
     }
 
     @Override
