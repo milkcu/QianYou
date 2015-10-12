@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -77,12 +80,17 @@ public class GameListFragment extends Fragment {
                 return true;
             }
         });
-        if(tabIndex == 1) {
-            webView.loadUrl("http://m.1000you.com/api_gamelist.php");
-        } else if(tabIndex == 2) {
-            webView.loadUrl("http://m.1000you.com/api_hotlist.php");
-        } else if(tabIndex == 3) {
-            webView.loadUrl("file:///android_asset/category.html");
+        ConnectivityManager cm = (ConnectivityManager)getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+        if(isConnected) {
+            if(tabIndex == 1) {
+                webView.loadUrl("http://m.1000you.com/api_gamelist.php");
+            } else if(tabIndex == 2) {
+                webView.loadUrl("http://m.1000you.com/api_hotlist.php");
+            } else if(tabIndex == 3) {
+                webView.loadUrl("file:///android_asset/category.html");
+            }
         } else {
             webView.loadUrl("file:///android_asset/offline.html");
         }
