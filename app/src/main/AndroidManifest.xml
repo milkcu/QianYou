@@ -15,7 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GameDetailActivity" >
+        <activity android:name=".GameDetailActivity"
+            android:label="@string/game_detail_title">
         </activity>
     </application>
 

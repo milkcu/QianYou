@@ -1,5 +1,7 @@
 package com.xint78.qianyou;
 
+//import android.app.ActionBar;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -59,6 +61,10 @@ public class GameDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_detail);
 
+        //ActionBar actionBar = getActionBar();
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         // init dl
         completeReceiver = new CompleteReceiver();
         /** register download success broadcast **/
@@ -94,5 +100,17 @@ public class GameDetailActivity extends AppCompatActivity {
             }
         });
         detailView.loadUrl("http://milkcu.com/webview-test.html");
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

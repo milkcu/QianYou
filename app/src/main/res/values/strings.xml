@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">QianYou</string>
+    <string name="app_name">千游游戏</string>
+    <string name="main_activity_title">千游游戏市场</string>
+    <string name="game_detail_title">游戏详情</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
