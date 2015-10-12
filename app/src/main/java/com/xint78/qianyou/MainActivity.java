@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 */
 
+import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
@@ -54,9 +55,16 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < len; i++) {
             RadioButton radioButton = new RadioButton(this);
             radioButton.setText(tabArr[i]);
+            radioButton.setTextSize(18);
+            radioButton.setButtonDrawable(null);
+            radioButton.setPadding(20, 30, 20, 30);
+            radioButton.setTextColor(Color.rgb(255, 255, 255));
             radioButton.setGravity(Gravity.CENTER);
-            radioButton.setButtonDrawable(R.drawable.radiobutton_selector);
+            //radioButton.setButtonDrawable(R.drawable.radiobutton_selector);
             //radioButton.setBackgroundResource(R.drawable.partition);
+            //radioButton.setBackground(R.drawable.radiobutton_selector);
+            radioButton.setBackgroundResource(R.drawable.radiobutton_selector);
+            //radioButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
             int length = getResources().getDisplayMetrics().widthPixels;
             int eachLength = length / len;
             radioButton.setWidth(eachLength);

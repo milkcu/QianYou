@@ -11,14 +11,9 @@
         android:id="@+id/radioGroup_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"></RadioGroup>
+        android:orientation="horizontal"></RadioGroup>
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_height="match_parent" />
 </LinearLayout>
